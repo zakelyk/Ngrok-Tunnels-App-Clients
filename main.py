@@ -104,7 +104,7 @@ def ssh(url, user):
             os.system(f"ssh \"{user}\"@{host} -p {port}")       
 
 app = tk.Tk()
-app.title("Rizky Lamp")
+app.title("YOUR APP TITLE")
 app.iconbitmap("E:\\Project\\Ngrok Tunnels App Clients\\mstsc_101.ico")
 
 main_frame = tk.Frame(app, padx=20, pady=20)
