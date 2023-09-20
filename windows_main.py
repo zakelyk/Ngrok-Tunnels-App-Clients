@@ -1,12 +1,19 @@
 import subprocess
 import tkinter as tk
 from tkinter import messagebox
+import sys
 import os
 import requests
 
+ngrokApi = "YOUR_NGROK_API_KEY"
+appName = "YOUR_APP_NAME"
+
+base_dir = os.path.dirname(sys.executable if getattr(sys, 'frozen', False) else sys.argv[0])
+icon_path = os.path.join(base_dir, os.path.basename(sys.executable))
+
 def fetch():
     head = {
-        "authorization": "Bearer YOUR_NGROK_API_KEY", #api key
+        "authorization": "Bearer "+ngrokApi,
         "ngrok-version": "2"
     }
     try:
@@ -104,8 +111,8 @@ def ssh(url, user):
             os.system(f"ssh \"{user}\"@{host} -p {port}")       
 
 app = tk.Tk()
-app.title("YOUR APP TITLE")
-app.iconbitmap("E:\\Project\\Ngrok Tunnels App Clients\\mstsc_101.ico")
+app.title(appName)
+app.iconbitmap(icon_path)
 
 main_frame = tk.Frame(app, padx=20, pady=20)
 main_frame.pack(padx=10, pady=5)
